@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #error-message {
+            text-align: center;
+            background-color: #ff6b6b;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .proposal {
+            text-align: center;
+            background-color: #e6e6fa;
+        }
+        #yes {
+            background-color: #ff4136;
+            color: white;
+        }
+        #no {
+            background-color: #484848;
+            color: white;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        #message {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="error-message">
+        <h1>Error 404</h1>
+        <p>Page Not Found</p>
+        <button class="btn" onclick="refreshPage()">Refresh Page to Continue</button>
+    </div>
+    <div id="proposal-container" style="display: none;">
+        <div class="proposal">
+            <h1>Will you be my Valentine?</h1>
+            <button id="yes" class="btn">Yes ❤️💕💖</button>
+            <button id="no" class="btn">No 😢😭</button>
+            <div id="message">
+                <p>Hey babe! Thank you for accepting my invitation to be my valentine. I know we are far apart but my heart, mind, body, and soul are there with you. I love you so much, baby! You are the best thing that has ever happened to me. I think about you and smile. You are my source of happiness, comfort, peace, joy, contentment, fulfillment, and lots of other things. Kisses ❤️💕💖</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function refreshPage() {
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('proposal-container').style.display = 'flex';
+            
+            document.getElementById('yes').addEventListener('click', function() {
+                document.querySelector('.proposal h1').style.display = 'none';
+                this.style.display = 'none';
+                document.getElementById('no').style.display = 'none';
+                document.getElementById('message').style.display = 'block';
+            });
+
+            // No button is disabled by CSS, but you could also add this for redundancy:
+            document.getElementById('no').disabled = true;
+        }
+    </script>
+</body>
+</html>
